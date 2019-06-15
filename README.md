@@ -67,21 +67,9 @@ For a total of $51.20
 
 And $51.20 is the price with the biggest discount.
 
-## Exception messages
-
-Sometimes it is necessary to raise an exception. When you do this, you should include a meaningful error message to
-indicate what the source of the error is. This makes your code more readable and helps significantly with debugging. Not
-every exercise will require you to raise an exception, but for those that do, the tests will only pass if you include
-a message.
-
-To raise a message with an exception, just write it as an argument to the exception type. For example, instead of
-`raise Exception`, you should write:
-
-```python
-raise Exception("Meaningful message indicating the source of the error")
-```
-
 ## Running the tests
+
+### Python Implementation
 
 To run the tests, run the appropriate command below ([why they are different](https://github.com/pytest-dev/pytest/issues/1629#issue-161422224)):
 
@@ -91,7 +79,7 @@ To run the tests, run the appropriate command below ([why they are different](ht
 Alternatively, you can tell Python to run the pytest module (allowing the same command to be used regardless of Python version):
 `python -m pytest book_store_test.py`
 
-### Common `pytest` options
+#### Common `pytest` options
 
 - `-v` : enable verbose output
 - `-x` : stop running tests on first failure
@@ -99,19 +87,10 @@ Alternatively, you can tell Python to run the pytest module (allowing the same c
 
 For other options, see `python -m pytest -h`
 
-## Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the solution is in the `$EXERCISM_WORKSPACE/python/book-store` directory.
-
-You can find your Exercism workspace by running `exercism debug` and looking for the line that starts with `Workspace`.
-
-For more detailed information about running tests, code style and linting,
-please see [Running the Tests](http://exercism.io/tracks/python/tests).
+### C Implementation
+	$ bash run_tests.sh
 
 ## Source
 
 Inspired by the harry potter kata from Cyber-Dojo. [http://cyber-dojo.org](http://cyber-dojo.org)
-
-## Submitting Incomplete Solutions
-
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
