@@ -1,4 +1,5 @@
 #include "book_store.h"
+#include "helpers.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -7,8 +8,7 @@ int original_total_books = 0;
 float rates[] = {1.00,0.95,0.90,0.80,0.75};
 int price_per_book = 800;
 
-// discount/books ratio
-// offer_choices = [0/1,5/2,10/3,20/4,25/5]
+//discount/books ratio i.e  offer_choices[] = {0/1,5/2,10/3,20/4,25/5}
 int offer_choices[] = {0,2,3,5,5};
 
 int total(int *basket, int size)
@@ -23,6 +23,9 @@ int total(int *basket, int size)
 
     // this is literaly brute force: computing based on all 
     // best offers. They can be multiple with similar value per item
+    // e.g in this case we have [.., 5, 5], so 5 is the best offer
+    // and it is appearing twice at group 4 and group 5 (indices), 
+    // hence we will brute force twice!!
     // Not an efficient algorithm.
     for(int i=0; i < offers_count; i++)
     {
@@ -70,43 +73,4 @@ void prep_books(int *basket, int size)
         books[entry]++;
     }
     sortInDesc(books, b_count);
-}
-
-void sortInDesc(int *arr, int size)
-{
-    int temp;
-    for (int i = 0; i < size; i++)
-    {
-        for (int j = i + 1; j < size; j++)
-        {
-            if(arr[i] < arr[j])
-            {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-}
-
-int largest(int arr[], int n) 
-{ 
-    int max = arr[0];  
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] > max) 
-            max = arr[i]; 
-    }
-    return max; 
-}
-
-int smallest(int arr[], int n) 
-{ 
-    int min = arr[0];  
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] < min) 
-            min = arr[i]; 
-    }
-    return min; 
 }
